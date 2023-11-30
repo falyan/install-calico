@@ -1,4 +1,4 @@
-# install-calico
+# install-calico-kubernetes
 How to install calico on kubernetes multimaster
 
 ## calico
