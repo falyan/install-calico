@@ -16,4 +16,49 @@ Integrasi dengan Kubernetes Network Policies: Calico dapat berintegrasi dengan k
 
 Monitoring dan Logging: Calico menyediakan alat monitoring dan logging yang memungkinkan Anda untuk melacak lalu lintas jaringan, mendeteksi potensi ancaman keamanan, dan menganalisis kinerja jaringan.
 
-Dengan menggunakan Calico, administrator Kubernetes dapat mengelola dan mengamankan lalu lintas jaringan dengan lebih efektif di dalam cluster mereka.
+Dengan menggunakan Calico, administrator Kubernetes dapat mengelola dan mengamankan lalu lintas jaringan dengan lebih efektif di dalam cluster yang telah dibangun.
+
+## Install the operator on your cluster and download manifest
+```bash
+mkdir calico
+cd calico
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/custom-resources.yaml
+kubectl create -f tigera-operator.yaml
+```
+## Download the custom resources necessary to configure Calico
+
+```bash
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/custom-resources.yaml
+```
+change block cidr base on your cluster init</br>
+```bash
+apiVersion: operator.tigera.io/v1
+kind: Installation
+metadata:
+  name: default
+spec:
+  # Configures Calico networking.
+  calicoNetwork:
+    # Note: The ipPools section cannot be modified post-install.
+    ipPools:
+    - blockSize: 26
+      cidr: 172.16.0.0/16
+      encapsulation: VXLANCrossSubnet
+      natOutgoing: Enabled
+      nodeSelector: all()
+
+---
+
+# This section configures the Calico API server.
+# For more information, see: https://projectcalico.docs.tigera.io/master/reference/installation/api#operator.tigera.io/v1.APIServer
+apiVersion: operator.tigera.io/v1
+kind: APIServer
+metadata:
+  name: default
+spec: {}
+
+```
+## apply cuctome resource
+```bash
+kubectl create -f custom-resources.yaml
+```
