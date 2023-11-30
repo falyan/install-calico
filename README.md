@@ -58,7 +58,14 @@ metadata:
 spec: {}
 
 ```
-## apply cuctome resource
+## apply custome resource
 ```bash
 kubectl create -f custom-resources.yaml
 ```
+
+## kubectl create -f custom-resources.yaml
+```bash
+watch kubectl get pods -n calico-system
+```
+result </br>
+![Alt text](image.png)
