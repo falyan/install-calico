@@ -18,7 +18,7 @@ Monitoring dan Logging: Calico menyediakan alat monitoring dan logging yang memu
 
 Dengan menggunakan Calico, administrator Kubernetes dapat mengelola dan mengamankan lalu lintas jaringan dengan lebih efektif di dalam cluster yang telah dibangun.
 
-## Install the operator on your cluster and download manifest
+## Install the operator on your cluster and download manifest (do only in one master)
 ```bash
 mkdir calico
 cd calico
