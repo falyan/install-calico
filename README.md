@@ -63,7 +63,7 @@ spec: {}
 kubectl create -f custom-resources.yaml
 ```
 
-## kubectl create -f custom-resources.yaml
+## check running pods on namespace calico-system 
 ```bash
 watch kubectl get pods -n calico-system
 ```
