@@ -70,5 +70,5 @@ watch kubectl get pods -n calico-system
 result </br>
 ![Alt text](image.png)
 
-## 🔗 Links
+## 🔗 About me
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/falyan-zuril-587585247/)
