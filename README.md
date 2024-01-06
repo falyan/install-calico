@@ -22,13 +22,14 @@ Dengan menggunakan Calico, administrator Kubernetes dapat mengelola dan mengaman
 ```bash
 mkdir calico
 cd calico
-wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/custom-resources.yaml
+wget https://raw.githubusercontent.com/projectcalico/calico/v3.27.0/manifests/tigera-operator.yaml
 kubectl create -f tigera-operator.yaml
 ```
 ## Download the custom resources necessary to configure Calico
 
 ```bash
 wget https://raw.githubusercontent.com/projectcalico/calico/v3.26.4/manifests/custom-resources.yaml
+nano custom-resources.yaml
 ```
 change block cidr base on your cluster init</br>
 ```bash
